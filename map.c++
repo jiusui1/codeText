@@ -4,11 +4,8 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    string str = "the sky is blue";
-    for(string s : str)
-    {
-        cout<<s<<endl;
-    }
+    cout << "hello world" << endl;
+    // std::string str = "hello world";
     return 0;
 }
 

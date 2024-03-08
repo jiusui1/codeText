@@ -4,7 +4,7 @@
  */
 class Solution {
 public:
-    string reverseWords(string s) {
+    std::string reverseWords(string s) {
         string str = "";
         for (int i = 0; i < s.size(); ++i)
         {
