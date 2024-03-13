@@ -1,2 +1,2 @@
 # codeText
-write code
+code text
