@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype> // 包含头文件用于大小写转换
 
 int main()
 {
