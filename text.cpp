@@ -5,13 +5,13 @@ using namespace std;
 class B {
    public:
     virtual void Fun() {
-        cout << "hello" << endl;
+        cout << "你好" << endl;
     }
 };
 class D : public B {
    public:
     void Fun() {
-        cout << "world" << endl;
+        cout << "世界" << endl;
     }
 };
 
