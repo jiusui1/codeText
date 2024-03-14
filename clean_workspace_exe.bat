@@ -1,4 +1,8 @@
-del %~dp0*.exe /q /s
-del %~dp0tempCodeRunnerFile.c /q /s
-del %~dp0a.out /q /s
-del %~dp0*.o /q /s
+@echo off
+cd /d %~dp0  REM 切换到当前脚本所在目录
+
+REM 删除当前目录下的所有 .exe 文件
+del *.exe /q /s
+
+echo Delete .exe files ok!
+pause
