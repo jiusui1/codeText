@@ -18,7 +18,6 @@ class D : public B {
 
 int main() {
     D dd;
-
     B *pb = &dd;
     D *pd = &dd;
     pb->Fun();
