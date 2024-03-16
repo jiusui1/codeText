@@ -16,7 +16,7 @@ class Solution {
         stack<TreeNode *> st;
 
         TreeNode *cur = root;
-        while (cur != nullptr || !st.empty) {
+        while (cur != nullptr || !st.empty()) {
             if (cur != nullptr) {
                 st.push(cur);
                 cur = cur->left;

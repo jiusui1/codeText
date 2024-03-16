@@ -1,28 +1,18 @@
+#include <algorithm>  // ?? std::max_element ??
 #include <iostream>
-#include <string>
 #include <vector>
-using namespace std;
-class B {
-   public:
-    virtual void Fun() {
-        cout << "" << endl;
-    }
-};
-class D : public B {
-   public:
-    void Fun() {
-        cout << "hello" << endl;
-        cout << "ÄãºÃ" << endl;
-    }
-};
 
 int main() {
-    D dd;
-    B *pb = &dd;
-    D *pd = &dd;
-    pb->Fun();
-    pd->Fun();
-    // cout << "hwllo" << endl;  // D
-    // system("pause");
+    std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2, 6};
+
+    // ?? std::max_element ?????
+    auto max_element_iterator = std::max_element(numbers.begin(), numbers.end());
+
+    if (max_element_iterator != numbers.end()) {
+        std::cout << "Max element is: " << *max_element_iterator << std::endl;
+    } else {
+        std::cout << "Vector is empty." << std::endl;
+    }
+
     return 0;
 }
