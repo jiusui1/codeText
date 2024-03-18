@@ -1,18 +1,27 @@
 #include <algorithm>  // ?? std::max_element ??
 #include <iostream>
+#include <unordered_map>
 #include <vector>
-
+using namespace std;
 int main() {
-    std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2, 6};
-
-    // ?? std::max_element ?????
-    auto max_element_iterator = std::max_element(numbers.begin(), numbers.end());
-
-    if (max_element_iterator != numbers.end()) {
-        std::cout << "Max element is: " << *max_element_iterator << std::endl;
-    } else {
-        std::cout << "Vector is empty." << std::endl;
+    string s = "IVXLC";
+    unordered_map<char, int> hash = {//"IVX"
+                                     {'I', 1},
+                                     {'V', 5},
+                                     {'X', 10},
+                                     {'L', 50},
+                                     {'C', 100},
+                                     {'D', 500},
+                                     {'M', 1000}};
+    int ans = 0;
+    for (int i = 0; i < s.size(); i++) {
+        cout << hash[s[i]] << " ";
+        cout << hash[s[i + 1]] << " ";
+        if (hash[s[i]] < hash[s[i + 1]])
+            ans -= hash[s[i]];
+        else
+            ans += hash[s[i]];
     }
-
+    cout << ans << endl;  // 1990
     return 0;
 }
