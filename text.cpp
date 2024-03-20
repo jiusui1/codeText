@@ -3,6 +3,10 @@
 #include <unordered_map>
 #include <vector>
 using namespace std;
+void get(int a, int b) {
+    a += 1;
+}
+
 int main() {
     // string s = "IVXLC";
     // unordered_map<char, int> hash = {//"IVX"
@@ -23,19 +27,22 @@ int main() {
     //         ans += hash[s[i]];
     // }
     // cout << ans << endl;  // 1990
-    vector<int> nums = {-1};
-    int k = 2;
-    int n = nums.size() - k;
-    int size = nums.size();
-    vector<int> vec;
-    for (int i = n; i < size; i++) {
-        vec.push_back(nums[i]);
-        nums.pop_back();
-    }
-    vec.insert(vec.end(), nums.begin(), nums.end());
-    nums = vec;
-    for (int i : nums) {
-        cout << i << " ";
-    }
+    // vector<int> nums = {-1};
+    // int k = 2;
+    // int n = nums.size() - k;
+    // int size = nums.size();
+    // vector<int> vec;
+    // for (int i = n; i < size; i++) {
+    //     vec.push_back(nums[i]);
+    //     nums.pop_back();
+    // }
+    // vec.insert(vec.end(), nums.begin(), nums.end());
+    // nums = vec;
+    // for (int i : nums) {
+    //     cout << i << " ";
+    // }
+    std::cout << "Hello, World!" << std::endl;
+    int a, b, c;
+    cin >> a >> b >> c;
     return 0;
 }
