@@ -2,13 +2,15 @@
 #include <unordered_map>
 using namespace std;
 
-bool isIsomorphic(string s, string t) {
+bool isIsomorphic(string s, string t)
+{
     unordered_map<char, char> t2s, s2t;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.size(); i++)
+    {
         char a = s[i], b = t[i];
-        // ¶ÔÓÚÒÑÓĞÓ³Éä a -> s2t[a]£¬ÈôºÍµ±Ç°×Ö·ûÓ³Éä a -> b ²»Æ¥Åä£¬
-        // ËµÃ÷ÓĞÒ»¶Ô¶àµÄÓ³Éä¹ØÏµ£¬Ôò·µ»Ø false £»
-        // ¶ÔÓÚÓ³Éä b -> a Ò²Í¬Àí
+        // å¯¹äºå·²æœ‰æ˜ å°„ a -> s2t[a]ï¼Œè‹¥å’Œå½“å‰å­—ç¬¦æ˜ å°„ a -> b ä¸åŒ¹é…ï¼Œ
+        // è¯´æ˜æœ‰ä¸€å¯¹å¤šçš„æ˜ å°„å…³ç³»ï¼Œåˆ™è¿”å› false ï¼›
+        // å¯¹äºæ˜ å°„ b -> a ä¹ŸåŒç†
         if (s2t.find(a) != s2t.end() && s2t[a] != b ||
             t2s.find(b) != t2s.end() && t2s[b] != a)
             return false;
@@ -18,7 +20,8 @@ bool isIsomorphic(string s, string t) {
     return true;
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
     string s = "title";
     string t = "paper";
     isIsomorphic(s, t);

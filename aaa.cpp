@@ -10,7 +10,7 @@ std::vector<int> plusOne(std::vector<int> &digits) {
             digits[i] = 0;
         }
     }
-    // Èç¹ûËùÓĞÎ»¶¼ÊÇ9£¬ÔòĞèÒªÔÚÊı×éµÄ×îÇ°Ãæ²åÈëÒ»¸ö1
+    // å¦‚æœæ‰€æœ‰ä½éƒ½æ˜¯9ï¼Œåˆ™éœ€è¦åœ¨æ•°ç»„çš„æœ€å‰é¢æ’å…¥ä¸€ä¸ª1
     digits.insert(digits.begin(), 1);
     return digits;
 }

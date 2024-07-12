@@ -1,67 +1,67 @@
 #include "StudentManager.h"
 
 StudentManager::StudentManager() {
-    // ³õÊ¼»¯Á¬½Ó¶ÔÏó
+    // åˆå§‹åŒ–è¿æ¥å¯¹è±¡
     connect = mysql_init(NULL);
     host = "127.0.0.1";
     user = "root";
     pwd = "123456";
     database_name = "database_test";
     port = 3306;
-    // ÉèÖÃ×Ö·û±àÂë
+    // è®¾ç½®å­—ç¬¦ç¼–ç 
     mysql_options(connect, MYSQL_SET_CHARSET_NAME, "GBK");
 
-    // ÉèÖÃÁ¬½Ó
+    // è®¾ç½®è¿æ¥
     if (!mysql_real_connect(connect, host.c_str(), user.c_str(), pwd.c_str(), database_name.c_str(), port, NULL, 0)) {
-        std::cout << "Êı¾İ¿âÁ´½ÓÊ§°Ü!" << std::endl;
-        std::cout << "´íÎóÔ­ÒòÎª£º" << mysql_error(connect) << std::endl;
+        std::cout << "æ•°æ®åº“é“¾æ¥å¤±è´¥!" << std::endl;
+        std::cout << "é”™è¯¯åŸå› ä¸ºï¼š" << mysql_error(connect) << std::endl;
     } else {
-        std::cout << "Êı¾İ¿âÁ´½Ó³É¹¦!" << std::endl;
+        std::cout << "æ•°æ®åº“é“¾æ¥æˆåŠŸ!" << std::endl;
     }
 }
 
 StudentManager::~StudentManager() {
-    // ¹Ø±ÕÊı¾İ¿âÁ¬½Ó¶ÔÏó
+    // å…³é—­æ•°æ®åº“è¿æ¥å¯¹è±¡
     mysql_close(connect);
 }
 
 bool StudentManager::insert_student(Student &stu) {
-    // ´´½¨Êı¾İ¿âÓï¾ä
+    // åˆ›å»ºæ•°æ®åº“è¯­å¥
     char sql[1024];
     sprintf(sql, "INSERT INTO students values(%d,'%s','%s')", stu.student_id, stu.student_name.c_str(), stu.class_id.c_str());
 
     if (mysql_query(connect, sql)) {
-        // Èç¹û³ö´íÁË
+        // å¦‚æœå‡ºé”™äº†
         std::cout << "database fail insert :" << mysql_error(connect) << std::endl;
         return false;
     }
-    // ³É¹¦²åÈë
+    // æˆåŠŸæ’å…¥
     std::cout << "database insert sucess:" << stu.student_id << ", " << stu.student_name << ", " << stu.class_id << std::endl;
     return true;
 }
 
 bool StudentManager::delete_student(int student_id) {
-    // ´´½¨Êı¾İ¿âÓï¾ä
+    // åˆ›å»ºæ•°æ®åº“è¯­å¥
     char sql[1024];
     sprintf(sql, "DELETE FROM students WHERE student_id = %d", student_id);
 
     if (mysql_query(connect, sql)) {
-        // Èç¹û³ö´íÁË
+        // å¦‚æœå‡ºé”™äº†
         std::cout << "database fail delete :" << mysql_error(connect) << std::endl;
         return false;
     }
-    // ³É¹¦É¾³ı
+    // æˆåŠŸåˆ é™¤
     std::cout << "database delete sucess, the student_id: " << student_id << std::endl;
     return true;
 }
 
 bool StudentManager::update_student(Student &stu) {
-    // ´´½¨Êı¾İ¿âÓï¾ä
+    // åˆ›å»ºæ•°æ®åº“è¯­å¥
     char sql[1024];
     sprintf(sql, "UPDATE students SET student_name = '%s',class_id = '%s' WHERE student_id = %d", stu.student_name.c_str(), stu.class_id.c_str(), stu.student_id);
 
     if (mysql_query(connect, sql)) {
-        // Èç¹û³ö´íÁË
+        // å¦‚æœå‡ºé”™äº†
         std::cout << "database fail update :" << mysql_error(connect) << std::endl;
         return false;
     }
@@ -71,25 +71,25 @@ bool StudentManager::update_student(Student &stu) {
 
 std::vector<Student> StudentManager::get_student(std::string condition) {
     std::vector<Student> stulist;
-    // ´´½¨Êı¾İ¿âÓï¾ä
+    // åˆ›å»ºæ•°æ®åº“è¯­å¥
     char sql[1024];
     sprintf(sql, "SELECT * FROM students %s ", condition.c_str());
 
     if (mysql_query(connect, sql)) {
-        // Èç¹û³ö´íÁË
+        // å¦‚æœå‡ºé”™äº†
         std::cout << "database fail select :" << mysql_error(connect) << std::endl;
         return {};
     }
-    // ²éÕÒ³É¹¦
+    // æŸ¥æ‰¾æˆåŠŸ
     std::cout << "database select sucess!" << mysql_error(connect) << std::endl;
     MYSQL_RES *res = mysql_store_result(connect);
 
     MYSQL_ROW row;
     while ((row = mysql_fetch_row(res))) {
         Student stu;
-        stu.student_id = atoi(row[0]);  // Êı¾İ¿âµÚÒ»ÁĞ
-        stu.student_name = row[1];      // Êı¾İ¿âµÚ¶şÁĞ
-        stu.class_id = row[2];          // Êı¾İ¿âµÚÈıÁĞ
+        stu.student_id = atoi(row[0]);  // æ•°æ®åº“ç¬¬ä¸€åˆ—
+        stu.student_name = row[1];      // æ•°æ®åº“ç¬¬äºŒåˆ—
+        stu.class_id = row[2];          // æ•°æ®åº“ç¬¬ä¸‰åˆ—
         stulist.push_back(stu);
     }
     return stulist;
