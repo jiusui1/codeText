@@ -1,0 +1,46 @@
+"editor.tokenColorCustomizations": {
+        //文本匹配规则
+        "textMateRules": [
+            //##########################################################################
+            //类的名称颜色 如class abc() 中的abc
+            {
+                "scope": "entity.name.type", //函数和类的名称颜色
+                "settings": {
+                    "foreground": "#A6E22E",
+                }
+            },
+            {
+                "name": "Namespace",
+                "scope": "entity.name.namespace",
+                "settings": {
+                    "foreground": "#f8f8f2"
+                }
+            },
+            {
+            "scope": "keyword.operator.assignment.cpp",
+            "settings": {
+                //"foreground": "#f8f8f2"  // 设置'='的颜色，这里示例使用橙色
+                }
+            },
+            {
+            "scope": "keyword.operator.arithmetic.cpp",
+            "settings": {
+                //"foreground": "#f8f8f2"  // 设置/的颜色为橙色
+                }
+            },
+            //设置<<和>>的颜色
+            {
+                "scope": "keyword.operator.bitwise.shift.cpp",
+                "settings": {
+                    "foreground": "#f8f8f2"
+                }
+            },
+            //设置‘结构体类型类型名’的颜色
+            {
+            "scope": "support.type.user-defined.cpp",
+            "settings": {
+                //"foreground": "#0000FF"  // 设置AIO_SystemState_t的颜色为蓝色
+                }
+            }
+        ]
+    },
